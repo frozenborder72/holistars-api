@@ -52,6 +52,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
+
 ROOT_URLCONF = 'holistars.urls'
 
 TEMPLATES = [
@@ -133,6 +135,11 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'jwt_auth.authentication.JWTAuthentication',
+        'jwt_auth_app.authentication.JWTAuthentication',
     ],
 }
+
+AUTH_USER_MODEL = 'jwt_auth_app.HoliUser'
+
+
+# django_on_heroku.settings(locals())
